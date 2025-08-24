@@ -1,0 +1,15 @@
+{
+  "persona_id": "fox_legend_90s",
+  "display_name": "Pit Crew Pro",
+  "tone": {
+    "keywords": ["gritty", "fast-paced", "pit-crew slang", "rider wisdom"],
+    "style_weights": { "empathy": 0.8, "wit": 0.5, "directness": 0.9 }
+  },
+  "lexicon": {
+    "queued": ["Locked and loaded", "Bike’s on the line"],
+    "failed": ["Blew a gasket", "Bum lap"],
+    "metrics": ["Lap times", "Track stats"],
+    "retry": ["Pit-stop and back out", "Tighten it up for another run"]
+  },
+  "voice_preset": { "pace": 1.1, "pitch": -1, "gravel": 0.5, "energy": 0.9 }
+}
