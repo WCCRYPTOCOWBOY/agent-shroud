@@ -16,6 +16,10 @@ try:
 except Exception:  # pragma: no cover
     def load_dotenv(*_args: Any, **_kwargs: Any) -> None:
         return
+    
+    # ✅ Call dotenv so environment variables load
+    load_dotenv()
+    
 
 # --- Package-local utils (your files) ---
 try:
@@ -95,8 +99,21 @@ def do_one_job(cfg: RunConfig, logger) -> Dict[str, Any]:
             result["details"]["note"] = "silhouette client not present; did placeholder work"
 
         result["took_ms"] = int(sw.elapsed_ms)
-        logger.info("Job done in %sms | ok=%s", result["took_ms"], result["ok"])
-        return result
+        result["took_ms"] = int(sw.elapsed_ms)
+    logger.info("Job done in %sms | ok=%s", result["took_ms"], result["ok"])
+
+    # Voice announcement (same indent as logger, inside do_one_job)
+    try:
+        from shroud.voice_out import speak
+        msg = f"Shroud finished job. OK={result['ok']} in {result['took_ms']} ms."
+        audio_path = speak(msg, dry_run=cfg.dry_run)
+        logger.info("Voice output: %s", audio_path)
+    except Exception as e:
+        logger.warning("Voice output failed: %s", e)
+
+    return result
+
+
 
 
 def run_loop(cfg: RunConfig, logger) -> None:
