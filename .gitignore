@@ -24,3 +24,10 @@ venv/
 # OS files
 .DS_Store
 Thumbs.db
+
+.env
+voice_out/
+
+__pycache__/
+*.pyc
+

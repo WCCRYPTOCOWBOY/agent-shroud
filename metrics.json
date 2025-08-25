@@ -1,0 +1,15 @@
+{
+  "attempts": {
+    "failed": 0,
+    "ok": 2,
+    "total": 4
+  },
+  "last_attempt": {
+    "took_ms": 50
+  },
+  "last_result": {
+    "mode": "run",
+    "ok": true,
+    "took_ms": 50
+  }
+}
